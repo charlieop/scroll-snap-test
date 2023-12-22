@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div {
+    line-height: 200px;
+    font-size: 1.5em;
+}
+
+.container {
+  height: 100vh;
+  background-color: aliceblue;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  width: 400px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.snap_y {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+.element {
+  --_margin: 10px;
+  margin: var(--_margin);
+  background-color: antiquewhite;
+  height: calc(100% - (var(--_margin) * 2));
+  border-radius: 7px;
+  text-align: center;
+  scroll-snap-align: center;
+}
+
+.inner_snap_y {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.snap_x {
+  scroll-snap-type: x mandatory;
+  display: flex;
+  overflow-x: scroll;
+}
+
+.inner_element_h {
+  --_margin: 10px;
+  margin: var(--_margin);
+  background-color: rgb(170, 219, 220);
+  width: calc(100% - (var(--_margin) * 2));
+  border-radius: 5px;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+}
+
+.inner_element {
+  --_margin: 10px;
+  margin: var(--_margin);
+  background-color: seashell;
+  height: calc(100% - (var(--_margin) * 2));
+  border-radius: 5px;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.snap_x::-webkit-scrollbar,
+.snap_y::-webkit-scrollbar,
+.inner_snap_y::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.snap_x,
+.snap_y,
+.inner_snap_y {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
